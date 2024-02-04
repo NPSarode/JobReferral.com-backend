@@ -3,8 +3,8 @@ import jsonwebtoken from 'jsonwebtoken'
 export const isAuthenticate = async (request, response, next) => {
 
     try {
-        
-        const token = request.headers['authorization'].split(' ')[1]
+
+        const token = request.headers['authorization']
 
         const isTrue = jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY, (err, id) => {
             

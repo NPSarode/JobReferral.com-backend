@@ -48,7 +48,7 @@ export const login = async (request, response) => {
             const token = jsonwebtoken.sign({_id: user._id}, process.env.JWT_PRIVATE_KEY, {expiresIn:"1h"})
 
             response.json({
-                status: 1,
+                success: true,
                 token
             })
 
