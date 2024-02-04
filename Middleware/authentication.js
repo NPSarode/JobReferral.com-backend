@@ -10,7 +10,7 @@ export const isAuthenticate = async (request, response, next) => {
             
             if ( err ) {
 
-            return  response.json({
+            return  response.status(401).json({
                     status: false,
                     message: "Unauthorized User"
                 })

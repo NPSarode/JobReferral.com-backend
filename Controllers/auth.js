@@ -11,7 +11,7 @@ export const register = async (request, response) => {
 
         if ( await Users.findOne({username}) ) {
             response.json({
-                success: true,
+                success: false,
                 message: "Username already existed."
             })
         } else {
