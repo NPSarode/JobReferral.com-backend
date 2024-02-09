@@ -7,6 +7,7 @@ import cors from 'cors'
 import { authRouter } from './Routes/auth.js'
 import { usersRouter } from './Routes/users.js'
 import { rolesRoute } from './Routes/roles.js'
+import { companyDetailRouter } from './Routes/companyDetails.js'
 
 export const app = express()
 
@@ -36,3 +37,5 @@ app.use(authRouter)
 app.use(usersRouter)
 
 app.use(rolesRoute)
+
+app.use(companyDetailRouter)
