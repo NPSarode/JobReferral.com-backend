@@ -3,7 +3,7 @@ import { Company_Details } from '../Modals/comapnyDetail.js'
 
 export const getCompanyList = async (request, response) => {
     try {
-
+        
         const details = await Company_Details.find({})
 
         response.status(200).json({

@@ -4,7 +4,6 @@ export const isAuthenticate = async (request, response, next) => {
 
     try {
 
-        // const token = request.headers['authorization']
         const token = request.headers['authorization'].split(" ")[1]
 
         const isTrue = jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY, (err, id) => {
