@@ -11,7 +11,7 @@ export const getUsers = async (request, response) => {
         const users = await Users.find({})
 
         response.json({
-            status: 1,
+            success: true,
             users
         })
 

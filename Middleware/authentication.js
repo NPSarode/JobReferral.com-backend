@@ -7,13 +7,14 @@ export const isAuthenticate = async (request, response, next) => {
         const token = request.headers['authorization'].split(" ")[1]
 
         const isTrue = jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY, (err, id) => {
-            
+
             if ( err ) {
 
-            return  response.status(401).json({
-                    status: false,
+                return  response.status(401).json({
+                    success: false,
                     message: "Unauthorized User"
                 })
+
             }
 
             return id
