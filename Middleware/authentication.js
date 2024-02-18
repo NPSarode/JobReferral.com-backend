@@ -1,10 +1,11 @@
 import jsonwebtoken from 'jsonwebtoken'
+import { sendStatus } from '../Utils/helpers.js'
 
 export const isAuthenticate = async (request, response, next) => {
 
     try {
 
-        const token = request.headers['authorization'].split(" ")[1]
+        const token = request.headers['authorization'] && request.headers['authorization'].split(" ")[1]
 
         const isTrue = jsonwebtoken.verify(token, process.env.JWT_PRIVATE_KEY, (err, id) => {
 
@@ -20,12 +21,13 @@ export const isAuthenticate = async (request, response, next) => {
             return id
          })
 
-        if ( isTrue )
+        if ( isTrue._id ) {
             next()
+        }
 
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong.", 200)
 
     }
 }

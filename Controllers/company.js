@@ -3,12 +3,12 @@ import { Company_Details } from '../Modals/comapnyDetail.js'
 
 export const getCompanyList = async (request, response) => {
     try {
-        
-        const details = await Company_Details.find({}).catch(err=>console.log(err))
+
+        const details = await Company_Details.find({})
 
         response.status(200).json({
             success: true,
-            details
+            data: details
         })
 
     } catch (error) {
@@ -29,14 +29,13 @@ export const addCompanyDetails = async (request, response) => {
         if (details) {
             response.status(200).json({
                 success: true,
-                details
+                data: details
             })
         } else {
             return
         }
 
     } catch (error) {
-        console.log(error)
         response.json({
             success: false,
             message: "Opps Error! try again."

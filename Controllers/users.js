@@ -17,7 +17,7 @@ export const getUsers = async (request, response) => {
 
     } catch (error) {
 
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong.", 200)
 
     }
 
@@ -49,7 +49,7 @@ export const updateUser = async (request, response) => {
 
     } catch (error) {
 
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong.", 200)
         
     }
     
@@ -78,7 +78,7 @@ export const deleteUser = async (request, response) => {
         
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong.", 200)
 
     }
 
@@ -100,7 +100,7 @@ export const getUserById = async (request, response) => {
         
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong.", 200)
 
     }
 

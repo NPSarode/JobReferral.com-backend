@@ -13,7 +13,7 @@ export const getRoles = async (request, response) => {
 
             response.json({
                 success: true,
-                roles
+                data: roles
             })
 
         } else {
@@ -23,7 +23,7 @@ export const getRoles = async (request, response) => {
 
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 200)
     }
 }
 
@@ -47,7 +47,7 @@ export const addRoles = async (request, response) => {
             roles ? 
             response.json({
                 success: true,
-                roles
+                data: roles
             })
             : 
             sendStatus(response, "Error", 200)
@@ -55,7 +55,7 @@ export const addRoles = async (request, response) => {
 
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 200)
     }
 
 }
@@ -79,7 +79,7 @@ export const updateRoles = async (request, response) => {
 
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 200)
     }
 
 }
@@ -103,7 +103,7 @@ export const deleteRoles = async (request, response) => {
 
     } catch (error) {
         
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 200)
     }
 
 }

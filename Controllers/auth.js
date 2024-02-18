@@ -1,6 +1,7 @@
 import { Users } from '../Modals/users.js'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
+import { sendStatus } from '../Utils/helpers.js'
 
 // Register new user 
 export const register = async (request, response) => {
@@ -28,7 +29,7 @@ export const register = async (request, response) => {
         
     } catch (error) {
 
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 422)
 
     }
 
@@ -49,7 +50,7 @@ export const login = async (request, response) => {
 
             response.json({
                 success: true,
-                token
+                data: token
             })
 
         } else {
@@ -61,7 +62,7 @@ export const login = async (request, response) => {
 
     } catch (error) {
 
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 422)
 
     }
 
@@ -79,7 +80,7 @@ export const logout = async (request, response) => {
 
     } catch (error) {
 
-        console.log(error)
+        sendStatus(response, "Oops Something Went Wrong", 422)
 
     }
 
