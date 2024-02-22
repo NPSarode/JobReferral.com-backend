@@ -1,10 +1,11 @@
+import JsonWebTokenError from 'jsonwebtoken'
 import { Company_Details } from '../Modals/comapnyDetail.js'
 
 
 export const getCompanyList = async (request, response) => {
     try {
 
-        const details = await Company_Details.find({})
+        const details = await Company_Details.find({last_date: { $gte : new Date( Date.now() ) }})
 
         response.status(200).json({
             success: true,

@@ -17,7 +17,7 @@ export const isAuthenticate = async (request, response, next) => {
                 })
 
             }
-
+            
             return id
          })
 
