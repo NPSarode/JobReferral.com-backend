@@ -45,12 +45,18 @@ export const login = async (request, response) => {
         const user = await Users.findOne({username}).select("+password")
 
         if( user && await bcrypt.compare(password, user.password) ) {
+            console.log(user)
 
-            const token = jsonwebtoken.sign({_id: user._id}, process.env.JWT_PRIVATE_KEY, {expiresIn:"1h"})
+            const token = jsonwebtoken.sign({_id: user._id}, process.env.JWT_PRIVATE_KEY, {expiresIn:"8h"})
 
             response.json({
                 success: true,
-                data: token
+                token,
+                data: {
+                    username: user.username,
+                    email: user.email,
+                    id: user._id
+                }
             })
 
         } else {
